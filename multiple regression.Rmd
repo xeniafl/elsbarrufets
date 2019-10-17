@@ -1,0 +1,55 @@
+---
+title: "multiple regression"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+```{r}
+library(readr)
+existing_product_attributes2017 <- read_csv("C:/Users/user/Downloads/existingproductattributes2017.csv")
+new_product_attributes2017 <- read_csv("C:/Users/user/Downloads/newproductattributes2017.csv")
+```
+
+```{r}
+library(caret)
+dummy_existing1 <- dummyVars(" ~ .", data = existing_product_attributes2017)
+dummy_existing <- data.frame(predict(dummy_existing1, newdata = existing_product_attributes2017))
+str(dummy_existing)
+summary(dummy_existing)
+dummy_existing$BestSellersRank <- NULL
+correlation_matrix <- cor(dummy_existing)
+correlation_matrix
+library(corrplot)
+corrplot(correlation_matrix)
+```
+
+```{r}
+library(party)
+dummy_existing$x5StarReviews <- NULL
+DecisionTree <- ctree(dummy_existing$Volume ~ ., data = dummy_existing, controls = ctree_control(maxdepth = 4))
+plot(DecisionTree)
+```
+
+```{r}
+dummy_existing$x3StarReviews <- NULL
+dummy_existing$x2StarReviews <- NULL
+dummy_existing$x1StarReviews <- NULL
+dummy_existing$NegativeServiceReview <- NULL
+dummy_existing$ProductNum <- NULL
+dummy_existing$Price <- NULL
+dummy_existing$Recommendproduct <- NULL
+dummy_existing$ShippingWeight <- NULL
+dummy_existing$ProductDepth <- NULL
+dummy_existing$ProductHeight <- NULL
+dummy_existing$ProductWidth <- NULL
+dummy_existing$ProfitMargin <- NULL
+
+correlation_matrix <- cor(dummy_existing)
+corrplot(correlation_matrix)
+
+```
+
+
