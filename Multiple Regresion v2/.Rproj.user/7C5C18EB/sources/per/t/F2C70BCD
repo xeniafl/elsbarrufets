@@ -1,25 +1,24 @@
 {
     "collab_server" : "",
     "contents" : "",
-    "created" : 1571324193788.000,
+    "created" : 1571733609757.000,
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "1369042045",
-    "id" : "1FF55D37",
-    "lastKnownWriteTime" : 1571324541,
-    "last_content_update" : 1571324541438,
+    "hash" : "473076478",
+    "id" : "F2C70BCD",
+    "lastKnownWriteTime" : 1571646528,
+    "last_content_update" : 1571646528,
     "path" : "~/Documents/GitHub/elsbarrufets/multiple regression.Rmd",
-    "project_path" : "multiple regression.Rmd",
+    "project_path" : null,
     "properties" : {
-        "cursorPosition" : "51,8",
-        "last_setup_crc32" : "",
-        "scrollLine" : "32"
+        "cursorPosition" : "17,47",
+        "scrollLine" : "0"
     },
     "read_only" : false,
     "read_only_alternatives" : [
     ],
-    "relative_order" : 2,
+    "relative_order" : 6,
     "source_on_save" : false,
     "source_window" : "",
     "type" : "r_markdown"

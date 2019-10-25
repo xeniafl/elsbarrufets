@@ -1,0 +1,33 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1571647104406.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "52BB1CC0",
+    "lastKnownWriteTime" : 140200617443332,
+    "last_content_update" : 1571647104406,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "3034BB28",
+        "caption" : "newproductattributes2017",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=newproductattributes2017&cache_key=3034BB28",
+        "displayedObservations" : 24,
+        "environment" : "",
+        "expression" : "newproductattributes2017",
+        "object" : "newproductattributes2017",
+        "preview" : 0,
+        "totalObservations" : 24,
+        "variables" : 18
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 3,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}
