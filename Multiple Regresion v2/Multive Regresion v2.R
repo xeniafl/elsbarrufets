@@ -90,6 +90,7 @@ testing2 <- dummyok[-inTraining2,]
 
 predict()
 
+#
 
 
 
