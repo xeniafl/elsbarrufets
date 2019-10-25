@@ -1,0 +1,33 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1571834703118.000,
+    "dirty" : false,
+    "encoding" : "",
+    "folds" : "",
+    "hash" : "0",
+    "id" : "D2384C96",
+    "lastKnownWriteTime" : 4416172573,
+    "last_content_update" : 1571834703118,
+    "path" : null,
+    "project_path" : null,
+    "properties" : {
+        "cacheKey" : "7FBCF6D7",
+        "caption" : "inTraining2",
+        "contentUrl" : "grid_resource/gridviewer.html?env=&obj=inTraining2&cache_key=7FBCF6D7",
+        "displayedObservations" : "65",
+        "environment" : "",
+        "expression" : "inTraining2",
+        "object" : "inTraining2",
+        "preview" : "0",
+        "totalObservations" : "65",
+        "variables" : "1"
+    },
+    "read_only" : false,
+    "read_only_alternatives" : [
+    ],
+    "relative_order" : 9,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_dataframe"
+}

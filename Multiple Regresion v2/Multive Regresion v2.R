@@ -1,0 +1,97 @@
+library(readr)
+library(caret)
+library(lattice)
+library(ggplot2)
+library(corrplot)
+library(ISLR)
+library(e1071)
+existingproductattributes2017 <- read_csv("~/Documents/GitHub/elsbarrufets/existingproductattributes2017.csv")
+newproductattributes2017 <- read_csv("~/Documents/GitHub/elsbarrufets/newproductattributes2017.csv")
+
+# dummify the data
+
+newDataFrame <- dummyVars(" ~ .", data = existingproductattributes2017)
+readyData <- data.frame(predict(newDataFrame, newdata = existingproductattributes2017))
+
+existingproductattributes2017$BestSellersRank <- NULL
+
+corrData <- cor(readyData)
+
+corrplot(corrData, method = "color", tl.cex= 0.55)
+
+#Eliminate 5 star review as it is perfectly correlated 
+
+existingproductattributes2017$x5StarReviews <- NULL
+
+#Linear Model
+
+lm(Volume~ ., training)
+predict(lm(Volume~ ., training), testing)
+postResample(predict(lm(Volume~ ., training), testing), testing$Volume)
+
+
+## Creating training and testing sets:
+
+inTraining <- createDataPartition(existingproductattributes2017$Volume, p = .80, list = FALSE)
+training <- existingproductattributes2017[inTraining,]
+testing <- existingproductattributes2017[-inTraining,]
+
+
+
+## Non-parametric machine learning model
+
+for(j in 1:10){
+  
+  print(j)
+
+dummyok <- subset(existingproductattributes2017, select = c("Volume", "x4StarReviews", "PositiveServiceReview"))
+
+#inTraining2 <- createDataPartition(dummyok$Volume, p = .80, list = FALSE)
+#training2 <- dummyok[inTraining2,]
+#testing2 <- dummyok[-inTraining2,]
+
+models <- c("rf","svmLinear","knn")
+
+compareModel <- c()
+set.seed(j)
+for(i in models) {
+#rfitControl <- trainControl(method = "repeatedcv", number = 10, repeats = 2, search = 'random', returnResamp = "final" )
+rfFitr2 <- train(Volume~., data = training2, method = i)#, trControl=rfitControl)
+pre <- predict(rfFitr2, testing2)
+
+predMetric <- postResample(testing2$Volume, pre)
+
+compareModel <- cbind(compareModel, predMetric)
+}
+
+
+colnames(compareModel) <- models
+
+print(compareModel)
+}
+
+ ##
+set.seed(3)
+  rfitControl <- trainControl(method = "repeatedcv", number = 10, repeats = 2, search = 'random', returnResamp = "final" )
+  rfFitr2 <- train(Volume~., data = training, method = "rf", trControl=rfitControl, importance=TRUE)
+  pre <- predict(rfFitr2, testing)
+  
+  predMetric <- postResample(testing$Volume, pre)
+  predMetric
+varImp(rfFitr2)
+
+##
+
+dummyok <- subset(existingproductattributes2017, select = c("ProductType", "Volume", "x4StarReviews", "PositiveServiceReview"))
+
+inTraining2 <- createDataPartition(dummyok$Volume, p = .80, list = FALSE)
+training2 <- dummyok[inTraining2,]
+testing2 <- dummyok[-inTraining2,]
+
+predict()
+
+
+
+
+
+        
